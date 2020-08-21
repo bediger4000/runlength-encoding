@@ -29,7 +29,6 @@ func main() {
 }
 
 func runLengthDecode(encoded string) string {
-	fmt.Printf("Decode %q\n", encoded)
 	var output []rune
 	var run int
 	var err error
