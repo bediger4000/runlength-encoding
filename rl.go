@@ -9,6 +9,7 @@ import (
 )
 
 func main() {
+	plainFlag := flag.Bool("p", false, "plain output")
 	decodeFlag := flag.Bool("d", false, "decode run-length encoded string")
 	flag.Parse()
 
@@ -20,11 +21,19 @@ func main() {
 		var output string
 		if *decodeFlag {
 			output = runLengthDecode(str)
-			fmt.Printf("Decoded: %q\n", output)
+			if *plainFlag {
+				fmt.Printf("%s\n", output)
+			} else {
+				fmt.Printf("Decoded: %q\n", output)
+			}
 			continue
 		}
 		output = runLengthEncode(str)
-		fmt.Printf("Encoded: %q\n", output)
+		if *plainFlag {
+			fmt.Printf("%s\n", output)
+		} else {
+			fmt.Printf("Encoded: %q\n", output)
+		}
 	}
 }
 
