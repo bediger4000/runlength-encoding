@@ -1,0 +1,11 @@
+#!/bin/bash
+set -eou pipefail
+
+for WORD in A AA AAA AAAA AAAAA AAAAAA AAAAAAA AAAAAAAA AAAAAAAAA AAAAAAAAAA AAAAAAAAAAA
+do
+	DECODED=$(./rl -p -d $(./rl -p $WORD))
+	if [[ $WORD != $DECODED ]]
+	then
+		echo $WORD encoded decoded to $DECODED
+	fi
+done
