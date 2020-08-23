@@ -22,6 +22,8 @@ $ go build rl.go
 $ ./rl AAAABBBCCDAA   # encodes by default
 $ ./rl -d 4A3B2C1D2A  # decodes with -d flag
 $ ./rl "thequick" "brownfoxjumps" "overthe"  # more than one string
+$ ./rl -p -d 4A3B2C1D2A  # "plain" decoded output, works for encoding, too
+$ ./runtests
 ```
 
 ## Analysis
