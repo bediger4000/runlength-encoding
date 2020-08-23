@@ -1,11 +1,32 @@
 #!/bin/bash
 set -eou pipefail
 
+ENCODED=$(./rl -p AAAABBBCCDAA)
+if [[ $ENCODED != 4A3B2C1D2A ]]
+then
+	echo AAAABBBCCDAA encoded to $ENCODED
+fi
+DECODED=$(./rl -d -p 4A3B2C1D2A)
+if [[ $DECODED != AAAABBBCCDAA ]]
+then
+	echo 4A3B2C1D2A decoded to $DECODED
+fi
+
+
 for WORD in A AA AAA AAAA AAAAA AAAAAA AAAAAAA AAAAAAAA AAAAAAAAA AAAAAAAAAA AAAAAAAAAAA
 do
 	DECODED=$(./rl -p -d $(./rl -p $WORD))
 	if [[ $WORD != $DECODED ]]
 	then
 		echo $WORD encoded decoded to $DECODED
+	fi
+done
+
+for WORD in 1A 2A 3A 4A 5A 6A 7A 8A 9A 9A1A 9A2A
+do
+	REENCODED=$(./rl -p $(./rl -d -p $WORD))
+	if [[ $WORD != $REENCODED ]]
+	then
+		echo $WORD encoded decoded to $REENCODED
 	fi
 done
