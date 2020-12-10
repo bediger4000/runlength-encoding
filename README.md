@@ -40,7 +40,7 @@ Encoding also has to check for a run that it hasn't output
 at the end of the loop over the input characters.
 
 Even though the programming part of this is not complex,
-there's enough coding to do for an interviewer to get a good
+there's enough coding for an interviewer to get a good
 sense of how the candidate works.
 
 The candidate should talk about what they're doing as they
